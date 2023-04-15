@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol OnboardingViewDelegate: AnyObject{
+    func didTappedGetStarted()
+}
+
 final class OnboardingView: UIView {
     
+    weak var delegate: OnboardingViewDelegate?
     
     private let imageView: UIView = {
         let view = UIView()
@@ -30,7 +35,6 @@ final class OnboardingView: UIView {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-//        stack.spacing = 10
         stack.distribution = .fillEqually
         return stack
     }()
@@ -63,7 +67,7 @@ final class OnboardingView: UIView {
         return label
     }()
     
-    private let startButton: UIButton = {
+    private lazy var startButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("Get Started", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -72,8 +76,17 @@ final class OnboardingView: UIView {
         button.titleLabel?.font = UIFont(name: "Poppins", size: 16)
         button.layer.cornerRadius = 25
         button.setImage(UIImage(named: "arrow-right"), for: .normal)
-        button.semanticContentAttribute = .forceRightToLeft
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+        if #available(iOS 15, *) {
+            var configuration = UIButton.Configuration.plain()
+            configuration.baseForegroundColor = .white
+            configuration.imagePadding = 15
+            configuration.imagePlacement = .trailing
+            button.configuration = configuration
+        } else {
+            button.semanticContentAttribute = .forceRightToLeft
+            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+        }
+        button.addTarget(self, action: #selector(didTapped), for: .touchUpInside)
         return button
     }()
     
@@ -95,16 +108,24 @@ final class OnboardingView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layout()
         style()
+        layout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc private func didTapped(){
+        delegate?.didTappedGetStarted()
+    }
 }
 
 extension OnboardingView{
+    private func style(){
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     private func layout(){
         stackViewForLabels.addArrangedSubview(taglineLabel)
         stackViewForLabels.addArrangedSubview(drinkLabel)
@@ -122,7 +143,8 @@ extension OnboardingView{
             trailingAnchor.constraint(equalToSystemSpacingAfter: commonStack.trailingAnchor, multiplier: 3),
             commonStack.topAnchor.constraint(equalTo: topAnchor),
             commonStack.bottomAnchor.constraint(equalTo: bottomAnchor),
-
+            imageView.heightAnchor.constraint(equalToConstant: 56),
+            
             startButton.heightAnchor.constraint(equalToConstant: 56),
             startButton.widthAnchor.constraint(equalToConstant: 180),
 
@@ -131,10 +153,6 @@ extension OnboardingView{
             splashImage.bottomAnchor.constraint(equalTo: bottomAnchor),
 
         ])
-    }
-    
-    private func style(){
-        translatesAutoresizingMaskIntoConstraints = false
     }
 }
  

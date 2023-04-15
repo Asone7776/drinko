@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE3F7CE329EA939800DDC7DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CE3F7CE229EA939800DDC7DA /* FirebaseAuth */; };
+		CE3F7CE529EA939800DDC7DA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE3F7CE429EA939800DDC7DA /* FirebaseFirestoreSwift */; };
+		CE3F7CE829EAA88E00DDC7DA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CE729EAA88E00DDC7DA /* SignInViewController.swift */; };
+		CE3F7CEC29EAA8CF00DDC7DA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CEB29EAA8CF00DDC7DA /* SignInView.swift */; };
+		CE3F7CEF29EAA8F000DDC7DA /* SignInViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CEE29EAA8F000DDC7DA /* SignInViewViewModel.swift */; };
+		CE3F7CF129EAAC2000DDC7DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3F7CF029EAAC2000DDC7DA /* GoogleService-Info.plist */; };
+		CE3F7CF329EAB74B00DDC7DA /* InitialAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CF229EAB74B00DDC7DA /* InitialAuthViewController.swift */; };
+		CE3F7CF529EAB78000DDC7DA /* InitialAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CF429EAB78000DDC7DA /* InitialAuthView.swift */; };
+		CE3F7CF829EAD21D00DDC7DA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CE3F7CF729EAD21D00DDC7DA /* Lottie */; };
+		CE3F7CFA29EAD55800DDC7DA /* drink.json in Resources */ = {isa = PBXBuildFile; fileRef = CE3F7CF929EAD55800DDC7DA /* drink.json */; };
 		CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05729E88EB100C2F044 /* AppDelegate.swift */; };
 		CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05929E88EB100C2F044 /* SceneDelegate.swift */; };
 		CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05B29E88EB100C2F044 /* MainViewController.swift */; };
@@ -25,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE3F7CE729EAA88E00DDC7DA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CE3F7CEB29EAA8CF00DDC7DA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CE3F7CEE29EAA8F000DDC7DA /* SignInViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewViewModel.swift; sourceTree = "<group>"; };
+		CE3F7CF029EAAC2000DDC7DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE3F7CF229EAB74B00DDC7DA /* InitialAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAuthViewController.swift; sourceTree = "<group>"; };
+		CE3F7CF429EAB78000DDC7DA /* InitialAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAuthView.swift; sourceTree = "<group>"; };
+		CE3F7CF929EAD55800DDC7DA /* drink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drink.json; sourceTree = "<group>"; };
 		CE77D05429E88EB100C2F044 /* Drinko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE77D05729E88EB100C2F044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE77D05929E88EB100C2F044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,12 +66,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3F7CE329EA939800DDC7DA /* FirebaseAuth in Frameworks */,
+				CE3F7CE529EA939800DDC7DA /* FirebaseFirestoreSwift in Frameworks */,
+				CE3F7CF829EAD21D00DDC7DA /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE3F7CE629EAA87C00DDC7DA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CE3F7CE729EAA88E00DDC7DA /* SignInViewController.swift */,
+				CE3F7CF229EAB74B00DDC7DA /* InitialAuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CE3F7CE929EAA8A500DDC7DA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CE3F7CEA29EAA8AE00DDC7DA /* SignIn */,
+				CE3F7CF429EAB78000DDC7DA /* InitialAuthView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CE3F7CEA29EAA8AE00DDC7DA /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CE3F7CEB29EAA8CF00DDC7DA /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CE3F7CED29EAA8D800DDC7DA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CE3F7CEE29EAA8F000DDC7DA /* SignInViewViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		CE77D04B29E88EB100C2F044 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +145,8 @@
 		CE77D06C29E88F0200C2F044 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE3F7CF929EAD55800DDC7DA /* drink.json */,
+				CE3F7CF029EAAC2000DDC7DA /* GoogleService-Info.plist */,
 				CE77D05729E88EB100C2F044 /* AppDelegate.swift */,
 				CE77D05929E88EB100C2F044 /* SceneDelegate.swift */,
 				CE77D06029E88EB200C2F044 /* Assets.xcassets */,
@@ -103,6 +159,7 @@
 		CE77D07029E88F5800C2F044 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE3F7CE629EAA87C00DDC7DA /* Auth */,
 				CE77D07729E8911F00C2F044 /* Core */,
 			);
 			path = Controllers;
@@ -118,6 +175,7 @@
 		CE77D07229E88F6D00C2F044 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE3F7CE929EAA8A500DDC7DA /* Auth */,
 				CE77D07A29E8918200C2F044 /* Onboarding */,
 			);
 			path = Views;
@@ -126,6 +184,7 @@
 		CE77D07329E88F7400C2F044 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CE3F7CED29EAA8D800DDC7DA /* Auth */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -198,6 +257,11 @@
 			dependencies = (
 			);
 			name = Drinko;
+			packageProductDependencies = (
+				CE3F7CE229EA939800DDC7DA /* FirebaseAuth */,
+				CE3F7CE429EA939800DDC7DA /* FirebaseFirestoreSwift */,
+				CE3F7CF729EAD21D00DDC7DA /* Lottie */,
+			);
 			productName = Drinko;
 			productReference = CE77D05429E88EB100C2F044 /* Drinko.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +290,10 @@
 				Base,
 			);
 			mainGroup = CE77D04B29E88EB100C2F044;
+			packageReferences = (
+				CE3F7CE129EA939800DDC7DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CE3F7CF629EAD21D00DDC7DA /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = CE77D05529E88EB100C2F044 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,8 +308,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3F7CFA29EAD55800DDC7DA /* drink.json in Resources */,
 				CE77D08829E8964F00C2F044 /* Poppins-SemiBold.ttf in Resources */,
 				CE77D08929E8964F00C2F044 /* Raleway-Regular.ttf in Resources */,
+				CE3F7CF129EAAC2000DDC7DA /* GoogleService-Info.plist in Resources */,
 				CE77D06429E88EB200C2F044 /* LaunchScreen.storyboard in Resources */,
 				CE77D08729E8964F00C2F044 /* Raleway-Medium.ttf in Resources */,
 				CE77D08B29E8964F00C2F044 /* FREESCPT.TTF in Resources */,
@@ -258,10 +328,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3F7CEC29EAA8CF00DDC7DA /* SignInView.swift in Sources */,
 				CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */,
 				CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */,
+				CE3F7CEF29EAA8F000DDC7DA /* SignInViewViewModel.swift in Sources */,
+				CE3F7CF329EAB74B00DDC7DA /* InitialAuthViewController.swift in Sources */,
 				CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */,
 				CE77D07C29E8919D00C2F044 /* OnboardingView.swift in Sources */,
+				CE3F7CF529EAB78000DDC7DA /* InitialAuthView.swift in Sources */,
+				CE3F7CE829EAA88E00DDC7DA /* SignInViewController.swift in Sources */,
 				CE77D08D29E8A30400C2F044 /* UIView+Ext.swift in Sources */,
 				CE77D07929E8915700C2F044 /* OnboardingViewController.swift in Sources */,
 				CE77D07E29E891D400C2F044 /* Constants.swift in Sources */,
@@ -470,6 +545,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE3F7CE129EA939800DDC7DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		CE3F7CF629EAD21D00DDC7DA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE3F7CE229EA939800DDC7DA /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3F7CE129EA939800DDC7DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CE3F7CE429EA939800DDC7DA /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3F7CE129EA939800DDC7DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		CE3F7CF729EAD21D00DDC7DA /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3F7CF629EAD21D00DDC7DA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE77D04C29E88EB100C2F044 /* Project object */;
 }

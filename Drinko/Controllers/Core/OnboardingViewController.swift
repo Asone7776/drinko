@@ -6,14 +6,19 @@
 //
 
 import UIKit
-
+protocol OnboardingViewControllerDelegate:AnyObject{
+    func proceedFromOnboarding()
+}
 final class OnboardingViewController: UIViewController {
     private let onboardingView = OnboardingView();
+    
+    weak var delegate:OnboardingViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
         style()
+        onboardingView.delegate = self
     }
     
 }
@@ -31,6 +36,12 @@ extension OnboardingViewController{
     
     private func style(){
         view.backgroundColor = Constants.Colors.mainColor
+    }
+}
+
+extension OnboardingViewController: OnboardingViewDelegate{
+    func didTappedGetStarted() {
+        delegate?.proceedFromOnboarding()
     }
 }
  
