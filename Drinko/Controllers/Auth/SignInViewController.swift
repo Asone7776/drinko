@@ -11,6 +11,8 @@ final class SignInViewController: UIViewController {
     let signInView = SignInView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        title = "Sign in"
         layout()
     }
 }

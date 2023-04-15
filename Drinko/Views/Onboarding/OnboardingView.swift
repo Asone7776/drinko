@@ -15,7 +15,7 @@ final class OnboardingView: UIView {
     
     weak var delegate: OnboardingViewDelegate?
     
-    private let imageView: UIView = {
+    private let buttonHolderView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -131,10 +131,10 @@ extension OnboardingView{
         stackViewForLabels.addArrangedSubview(drinkLabel)
         stackViewForLabels.addArrangedSubview(descriptionLabel)
         
-        imageView.addSubview(startButton)
+        buttonHolderView.addSubview(startButton)
         
         commonStack.addArrangedSubview(stackViewForLabels)
-        commonStack.addArrangedSubview(imageView)
+        commonStack.addArrangedSubview(buttonHolderView)
         commonStack.addArrangedSubview(drinkImage)
         
         addSubviews(splashImage,commonStack)
@@ -143,8 +143,7 @@ extension OnboardingView{
             trailingAnchor.constraint(equalToSystemSpacingAfter: commonStack.trailingAnchor, multiplier: 3),
             commonStack.topAnchor.constraint(equalTo: topAnchor),
             commonStack.bottomAnchor.constraint(equalTo: bottomAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 56),
-            
+            buttonHolderView.heightAnchor.constraint(equalToConstant: 56),
             startButton.heightAnchor.constraint(equalToConstant: 56),
             startButton.widthAnchor.constraint(equalToConstant: 180),
 

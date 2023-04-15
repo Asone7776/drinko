@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     let rootViewController = UINavigationController(rootViewController: InitialAuthViewController())
     var onboardingVC = OnboardingViewController()
+    var signInVC = SignInViewController()
     
 //    onboardingVC
     

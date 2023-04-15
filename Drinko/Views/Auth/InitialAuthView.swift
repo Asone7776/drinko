@@ -8,9 +8,33 @@
 import UIKit
 import Lottie
 
+protocol InitialAuthViewDelegate: AnyObject{
+    func didSelectSignIn()
+    func didSelectRegistration()
+}
+
 final class InitialAuthView: UIView {
-    
+    weak var delegate: InitialAuthViewDelegate?
     private let animationView = LottieAnimationView(name: "drink")
+    
+    private let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "default-bg")
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private let drinkLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Become an expert in Drinks!"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = UIFont(name: "Freestyle Script", size: 70)
+        label.textColor = Constants.Colors.secondaryColor
+        return label
+    }()
 
     private let stack: UIStackView = {
         let stack = UIStackView()
@@ -21,7 +45,7 @@ final class InitialAuthView: UIView {
         return stack
     }()
     
-    private let loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("Sign in", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -40,11 +64,11 @@ final class InitialAuthView: UIView {
             button.semanticContentAttribute = .forceRightToLeft
             button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         }
-        
+        button.addTarget(self, action: #selector(didPressedSignIn), for: .touchUpInside)
         return button
     }()
     
-    private let registerButton: UIButton = {
+    private lazy var registerButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +87,7 @@ final class InitialAuthView: UIView {
             button.semanticContentAttribute = .forceRightToLeft
             button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         }
-        
+        button.addTarget(self, action: #selector(didPressedRegistration), for: .touchUpInside)
         return button
     }()
     
@@ -77,6 +101,17 @@ final class InitialAuthView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: Actions
+
+extension InitialAuthView{
+    @objc private func didPressedSignIn(){
+        delegate?.didSelectSignIn()
+    }
+    @objc private func didPressedRegistration(){
+        delegate?.didSelectRegistration()
     }
 }
 
@@ -94,15 +129,25 @@ extension InitialAuthView{
     private func layout(){
         stack.addArrangedSubview(loginButton)
         stack.addArrangedSubview(registerButton)
-        addSubviews(animationView,stack)
+        addSubviews(backgroundImageView,animationView,drinkLabel,stack)
         NSLayoutConstraint.activate([
-            animationView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            
             animationView.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: animationView.trailingAnchor),
             animationView.heightAnchor.constraint(equalToConstant: 300),
+            drinkLabel.topAnchor.constraint(equalToSystemSpacingBelow: animationView.bottomAnchor, multiplier: 1),
+            
+            drinkLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: drinkLabel.trailingAnchor, multiplier: 1),
+            stack.topAnchor.constraint(equalToSystemSpacingBelow: drinkLabel.bottomAnchor, multiplier: 2),
+            
             stack.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
             trailingAnchor.constraint(equalToSystemSpacingAfter: stack.trailingAnchor, multiplier: 1),
-            bottomAnchor.constraint(equalToSystemSpacingBelow: stack.bottomAnchor, multiplier: 1),
+            bottomAnchor.constraint(equalTo: stack.bottomAnchor),
             registerButton.heightAnchor.constraint(equalToConstant: 56),
             loginButton.heightAnchor.constraint(equalToConstant: 56)
         ])

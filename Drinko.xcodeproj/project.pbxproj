@@ -17,6 +17,7 @@
 		CE3F7CF529EAB78000DDC7DA /* InitialAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CF429EAB78000DDC7DA /* InitialAuthView.swift */; };
 		CE3F7CF829EAD21D00DDC7DA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CE3F7CF729EAD21D00DDC7DA /* Lottie */; };
 		CE3F7CFA29EAD55800DDC7DA /* drink.json in Resources */ = {isa = PBXBuildFile; fileRef = CE3F7CF929EAD55800DDC7DA /* drink.json */; };
+		CE3F7CFC29EB4D4000DDC7DA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CFB29EB4D4000DDC7DA /* RegistrationViewController.swift */; };
 		CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05729E88EB100C2F044 /* AppDelegate.swift */; };
 		CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05929E88EB100C2F044 /* SceneDelegate.swift */; };
 		CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05B29E88EB100C2F044 /* MainViewController.swift */; };
@@ -42,6 +43,7 @@
 		CE3F7CF229EAB74B00DDC7DA /* InitialAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAuthViewController.swift; sourceTree = "<group>"; };
 		CE3F7CF429EAB78000DDC7DA /* InitialAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAuthView.swift; sourceTree = "<group>"; };
 		CE3F7CF929EAD55800DDC7DA /* drink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drink.json; sourceTree = "<group>"; };
+		CE3F7CFB29EB4D4000DDC7DA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		CE77D05429E88EB100C2F044 /* Drinko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE77D05729E88EB100C2F044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE77D05929E88EB100C2F044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				CE3F7CE729EAA88E00DDC7DA /* SignInViewController.swift */,
 				CE3F7CF229EAB74B00DDC7DA /* InitialAuthViewController.swift */,
+				CE3F7CFB29EB4D4000DDC7DA /* RegistrationViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */,
 				CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */,
 				CE3F7CEF29EAA8F000DDC7DA /* SignInViewViewModel.swift in Sources */,
+				CE3F7CFC29EB4D4000DDC7DA /* RegistrationViewController.swift in Sources */,
 				CE3F7CF329EAB74B00DDC7DA /* InitialAuthViewController.swift in Sources */,
 				CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */,
 				CE77D07C29E8919D00C2F044 /* OnboardingView.swift in Sources */,

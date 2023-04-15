@@ -12,24 +12,36 @@ final class InitialAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sign in or Register"
-        setup()
         layout()
+        initialView.delegate = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        navigationItem.backButtonTitle = ""
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
     }
 }
 
 extension InitialAuthViewController{
-    private func setup(){
-        view.backgroundColor = Constants.Colors.mainColor
-        navigationController?.navigationBar.isHidden = true
-    }
     private func layout(){
         view.addSubview(initialView)
         NSLayoutConstraint.activate([
             initialView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             initialView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            initialView.bottomAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.bottomAnchor, multiplier: 1),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: initialView.bottomAnchor, multiplier: 1),
             initialView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
+    }
+}
+
+extension InitialAuthViewController:InitialAuthViewDelegate{
+    func didSelectSignIn() {
+        navigationController?.pushViewController(SignInViewController(), animated: true)
+    }
+    
+    func didSelectRegistration() {
+        navigationController?.pushViewController(RegistrationViewController(), animated: true)
     }
 }
