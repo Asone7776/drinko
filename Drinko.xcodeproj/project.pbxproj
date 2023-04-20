@@ -33,6 +33,7 @@
 		CE77D08A29E8964F00C2F044 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE77D08429E8964F00C2F044 /* Raleway-SemiBold.ttf */; };
 		CE77D08B29E8964F00C2F044 /* FREESCPT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CE77D08529E8964F00C2F044 /* FREESCPT.TTF */; };
 		CE77D08D29E8A30400C2F044 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D08C29E8A30400C2F044 /* UIView+Ext.swift */; };
+		CEECA28629F1DE6A00717A0F /* DefaultUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		CE77D08429E8964F00C2F044 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		CE77D08529E8964F00C2F044 /* FREESCPT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = FREESCPT.TTF; sourceTree = "<group>"; };
 		CE77D08C29E8A30400C2F044 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		CE77D07229E88F6D00C2F044 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEECA28429F1DE4900717A0F /* Buttons */,
 				CE3F7CE929EAA8A500DDC7DA /* Auth */,
 				CE77D07A29E8918200C2F044 /* Onboarding */,
 			);
@@ -242,6 +245,14 @@
 				CE77D08429E8964F00C2F044 /* Raleway-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CEECA28429F1DE4900717A0F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +345,7 @@
 				CE3F7CEC29EAA8CF00DDC7DA /* SignInView.swift in Sources */,
 				CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */,
 				CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */,
+				CEECA28629F1DE6A00717A0F /* DefaultUIButton.swift in Sources */,
 				CE3F7CEF29EAA8F000DDC7DA /* SignInViewViewModel.swift in Sources */,
 				CE3F7CFC29EB4D4000DDC7DA /* RegistrationViewController.swift in Sources */,
 				CE3F7CF329EAB74B00DDC7DA /* InitialAuthViewController.swift in Sources */,

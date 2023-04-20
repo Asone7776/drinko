@@ -45,48 +45,21 @@ final class InitialAuthView: UIView {
         return stack
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton(type: .custom)
+    private lazy var loginButton: DefaultUIButton = {
+        let button = DefaultUIButton()
         button.setTitle("Sign in", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = Constants.Colors.darkBlue
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont(name: "Poppins", size: 16)
-        button.layer.cornerRadius = 25
         button.setImage(UIImage(systemName: "person.circle"), for: .normal)
-        if #available(iOS 15, *) {
-            var configuration = UIButton.Configuration.plain()
-            configuration.baseForegroundColor = .white
-            configuration.imagePadding = 15
-            configuration.imagePlacement = .trailing
-            button.configuration = configuration
-        } else {
-            button.semanticContentAttribute = .forceRightToLeft
-            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        }
+        button.setBackgroundColor(Constants.Colors.darkBlue, for: .normal)
         button.addTarget(self, action: #selector(didPressedSignIn), for: .touchUpInside)
         return button
     }()
     
-    private lazy var registerButton: UIButton = {
-        let button = UIButton(type: .custom)
+    
+    private lazy var registerButton: DefaultUIButton = {
+        let button = DefaultUIButton()
         button.setTitle("Register", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = Constants.Colors.darkBlue
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont(name: "Poppins", size: 16)
-        button.layer.cornerRadius = 25
         button.setImage(UIImage(systemName: "person.crop.circle.badge.plus"), for: .normal)
-        if #available(iOS 15, *) {
-            var configuration = UIButton.Configuration.plain()
-            configuration.baseForegroundColor = .white
-            configuration.imagePadding = 15
-            configuration.imagePlacement = .trailing
-            button.configuration = configuration
-        } else {
-            button.semanticContentAttribute = .forceRightToLeft
-            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        }
+        button.setBackgroundColor(Constants.Colors.darkBlue, for: .normal)
         button.addTarget(self, action: #selector(didPressedRegistration), for: .touchUpInside)
         return button
     }()

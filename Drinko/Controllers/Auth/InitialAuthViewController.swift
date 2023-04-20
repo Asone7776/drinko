@@ -18,6 +18,7 @@ final class InitialAuthViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         navigationItem.backButtonTitle = ""
+        navigationController?.navigationBar.tintColor = Constants.Colors.darkBlue
     }
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false

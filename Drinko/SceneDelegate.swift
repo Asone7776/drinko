@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         onboardingVC.delegate = self
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = onboardingVC
+        window?.rootViewController = rootViewController
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
     }
@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     func setRootViewController(_ vc: UIViewController, animated: Bool = true) {
         guard animated, let window = self.window else {
-            self.window?.rootViewController = OnboardingViewController()
+            self.window?.rootViewController = vc
             self.window?.makeKeyAndVisible()
             return
         }
