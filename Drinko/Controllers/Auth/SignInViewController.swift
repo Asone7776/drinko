@@ -7,13 +7,16 @@
 
 import UIKit
 
+
 final class SignInViewController: UIViewController {
     
     let signInView = SignInView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.Colors.mainColor
         title = "Sign in"
+        signInView.delegate = self
         layout()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -31,5 +34,21 @@ extension SignInViewController{
             signInView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             signInView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+}
+extension SignInViewController:SignInViewDelegate{
+    func didSignInWithError(_ error: String) {
+        AlertManager.createErrorAlert(title: "Error", message: error) {[weak self] alert in
+            guard let self = self else{
+                return
+            }
+            DispatchQueue.main.async {
+                self.present(alert,animated: true);
+            }
+        }
+    }
+    
+    func didSignInWithSuccess() {
+        NotificationCenter.default.post(name: .goToMain, object: nil);
     }
 }

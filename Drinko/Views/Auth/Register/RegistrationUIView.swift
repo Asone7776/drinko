@@ -1,22 +1,21 @@
 //
-//  SignInView.swift
+//  RegistrationUIView.swift
 //  Drinko
 //
-//  Created by Arthur Obichkin on 15/04/23.
+//  Created by Arthur Obichkin on 23/04/23.
 //
 
 import UIKit
 
-protocol SignInViewDelegate:AnyObject{
-    func didSignInWithError(_ error: String)
-    func didSignInWithSuccess()
+protocol RegistrationUIViewDelegate: AnyObject{
+    func didRegisterWithError(_ error: String)
+    func didRegisterWithSuccess()
 }
 
-final class SignInView: UIView {
+final class RegistrationUIView: UIView {
     
-    let viewModel = SignInViewViewModel()
-    
-    weak var delegate: SignInViewDelegate?
+    let viewModel = RegistrationViewViewModel();
+    weak var delegate: RegistrationUIViewDelegate?
     
     private let label: UILabel = {
         let label = UILabel()
@@ -63,14 +62,13 @@ final class SignInView: UIView {
     
     private lazy var submitButton: DefaultUIButton = {
         let button = DefaultUIButton()
-        button.setTitle("Sign in", for: .normal)
+        button.setTitle("Register", for: .normal)
         button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
-        button.addTarget(self, action: #selector(didPressedSignIn), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didPressedRegister), for: .touchUpInside)
         button.setBackgroundColor(Constants.Colors.darkBlue, for: .normal)
         button.setBackgroundColor(Constants.Colors.gray, for: .disabled)
         return button
     }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,23 +82,25 @@ final class SignInView: UIView {
 }
 
 //MARK: Actions
-extension SignInView{
-    @objc private func didPressedSignIn(){
-        viewModel.signInUser(email: emailTextField.text, password: passwordTextField.text){[weak self] result in
+extension RegistrationUIView{
+    @objc private func didPressedRegister(){
+        viewModel.registerUser(email: emailTextField.text, password: passwordTextField.text){[weak self] result in
             guard let self = self else{
                 return
             }
             switch result {
             case .success(_):
-                self.delegate?.didSignInWithSuccess()
+                self.delegate?.didRegisterWithSuccess()
             case .failure(let failure):
-                self.delegate?.didSignInWithError(failure.localizedDescription)
+                self.delegate?.didRegisterWithError(failure.localizedDescription)
             }
         }
     }
 }
 
-extension SignInView{
+
+extension RegistrationUIView{
+
     public func makeFocusOnEmail(){
         emailTextField.becomeFirstResponder()
     }

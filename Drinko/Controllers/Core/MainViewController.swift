@@ -7,14 +7,62 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-
+final class MainViewController: UIViewController {
+    let profileRightView = ProfileRightBarItemView()
+    
+    let mainUIView = MainUIView();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .orange
+        view.backgroundColor = .systemBackground
+        layout()
+        setupNavBar()
+        profileRightView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedRightButton)))
     }
+    
 
+}
 
+extension MainViewController{
+    private func setupNavBar(){
+        let imageView = UIImageView()
+        let image = UIImage(named: "drinko-logo")
+        imageView.image = image
+        navigationController?.navigationBar.topItem?.titleView = imageView
+        setupLeftBarButton()
+        setupRightBarButton()
+    }
+    
+    private func setupLeftBarButton(){
+        let leftBarItem = UIBarButtonItem(image: UIImage(named: "menu-icon"), landscapeImagePhone: nil, style: .done, target: self, action: #selector(didTappedLeftButton))
+        leftBarItem.tintColor = Constants.Colors.darkBlue
+        navigationItem.leftBarButtonItem = leftBarItem
+    }
+    
+    private func setupRightBarButton(){
+        let rightBarItem = UIBarButtonItem(customView: profileRightView)
+        navigationItem.rightBarButtonItem = rightBarItem
+    }
+    private func layout(){
+        view.addSubview(mainUIView)
+        NSLayoutConstraint.activate([
+            mainUIView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            mainUIView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            mainUIView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainUIView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+}
+//MARK: Actions
+extension MainViewController{
+ 
+    @objc func didTappedLeftButton(){
+        print("tapped left")
+    }
+    @objc func didTappedRightButton(){
+        profileRightView.showAnimation {
+            
+        }
+    }
 }
 

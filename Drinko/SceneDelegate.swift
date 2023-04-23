@@ -13,20 +13,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     let rootViewController = UINavigationController(rootViewController: InitialAuthViewController())
     var onboardingVC = OnboardingViewController()
-    var signInVC = SignInViewController()
     
-//    onboardingVC
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         onboardingVC.delegate = self
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = rootViewController
+        window?.rootViewController = selectInitialViewController()
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
+        registerForNotification()
     }
     
 }
@@ -48,10 +44,40 @@ extension SceneDelegate {
                           animations: nil,
                           completion: nil)
     }
+    
+    func registerForNotification(){
+        NotificationCenter.default.addObserver(self, selector: #selector(didLogout), name: .logout, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(didGoToMain), name: .goToMain, object: nil);
+    }
+    
+    func selectInitialViewController() -> UIViewController{
+        let user = Auth.auth().currentUser
+        if user != nil {
+            return UINavigationController(rootViewController: MainViewController());
+        } else {
+            return LocalState.hasOnboarded ? rootViewController : onboardingVC
+        }
+    }
 }
 extension SceneDelegate:OnboardingViewControllerDelegate {
     func proceedFromOnboarding() {
+        LocalState.hasOnboarded = true
         setRootViewController(rootViewController);
     }
 }
-
+//MARK: Actions for notifications
+extension SceneDelegate {
+    @objc func didLogout() {
+//        let firebaseAuth = Auth.auth()
+//        do {
+//          try firebaseAuth.signOut()
+//
+//        } catch let signOutError as NSError {
+//          print("Error signing out: %@", signOutError)
+//        }
+        setRootViewController(rootViewController);
+    }
+    @objc func didGoToMain() {
+        setRootViewController(UINavigationController(rootViewController: MainViewController()));
+    }
+}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0E545029F5BCF300447532 /* MainUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E544F29F5BCF300447532 /* MainUIView.swift */; };
+		CE0E545229F5C00100447532 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E545129F5C00100447532 /* LocalState.swift */; };
 		CE3F7CE329EA939800DDC7DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CE3F7CE229EA939800DDC7DA /* FirebaseAuth */; };
 		CE3F7CE529EA939800DDC7DA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE3F7CE429EA939800DDC7DA /* FirebaseFirestoreSwift */; };
 		CE3F7CE829EAA88E00DDC7DA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CE729EAA88E00DDC7DA /* SignInViewController.swift */; };
@@ -18,6 +20,11 @@
 		CE3F7CF829EAD21D00DDC7DA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CE3F7CF729EAD21D00DDC7DA /* Lottie */; };
 		CE3F7CFA29EAD55800DDC7DA /* drink.json in Resources */ = {isa = PBXBuildFile; fileRef = CE3F7CF929EAD55800DDC7DA /* drink.json */; };
 		CE3F7CFC29EB4D4000DDC7DA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F7CFB29EB4D4000DDC7DA /* RegistrationViewController.swift */; };
+		CE73BA9729F54F0F002118EC /* RegistrationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73BA9629F54F0F002118EC /* RegistrationUIView.swift */; };
+		CE73BA9929F5502E002118EC /* RegistrationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73BA9829F5502E002118EC /* RegistrationViewViewModel.swift */; };
+		CE73BA9B29F55258002118EC /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73BA9A29F55258002118EC /* AlertsManager.swift */; };
+		CE73BA9E29F56705002118EC /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73BA9D29F56705002118EC /* NSNotificationName.swift */; };
+		CE73BAA029F596D2002118EC /* ProfileRightBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73BA9F29F596D2002118EC /* ProfileRightBarItemView.swift */; };
 		CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05729E88EB100C2F044 /* AppDelegate.swift */; };
 		CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05929E88EB100C2F044 /* SceneDelegate.swift */; };
 		CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05B29E88EB100C2F044 /* MainViewController.swift */; };
@@ -37,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0E544F29F5BCF300447532 /* MainUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIView.swift; sourceTree = "<group>"; };
+		CE0E545129F5C00100447532 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		CE3F7CE729EAA88E00DDC7DA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE3F7CEB29EAA8CF00DDC7DA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CE3F7CEE29EAA8F000DDC7DA /* SignInViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewViewModel.swift; sourceTree = "<group>"; };
@@ -45,6 +54,11 @@
 		CE3F7CF429EAB78000DDC7DA /* InitialAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAuthView.swift; sourceTree = "<group>"; };
 		CE3F7CF929EAD55800DDC7DA /* drink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drink.json; sourceTree = "<group>"; };
 		CE3F7CFB29EB4D4000DDC7DA /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		CE73BA9629F54F0F002118EC /* RegistrationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUIView.swift; sourceTree = "<group>"; };
+		CE73BA9829F5502E002118EC /* RegistrationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewViewModel.swift; sourceTree = "<group>"; };
+		CE73BA9A29F55258002118EC /* AlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsManager.swift; sourceTree = "<group>"; };
+		CE73BA9D29F56705002118EC /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
+		CE73BA9F29F596D2002118EC /* ProfileRightBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRightBarItemView.swift; sourceTree = "<group>"; };
 		CE77D05429E88EB100C2F044 /* Drinko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE77D05729E88EB100C2F044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE77D05929E88EB100C2F044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0E544E29F5BCCE00447532 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				CE0E544F29F5BCF300447532 /* MainUIView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
 		CE3F7CE629EAA87C00DDC7DA /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +114,10 @@
 		CE3F7CE929EAA8A500DDC7DA /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				CE73BA9529F54EF3002118EC /* Register */,
 				CE3F7CEA29EAA8AE00DDC7DA /* SignIn */,
 				CE3F7CF429EAB78000DDC7DA /* InitialAuthView.swift */,
+				CE73BA9F29F596D2002118EC /* ProfileRightBarItemView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -110,8 +134,26 @@
 			isa = PBXGroup;
 			children = (
 				CE3F7CEE29EAA8F000DDC7DA /* SignInViewViewModel.swift */,
+				CE73BA9829F5502E002118EC /* RegistrationViewViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		CE73BA9529F54EF3002118EC /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				CE73BA9629F54F0F002118EC /* RegistrationUIView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		CE73BA9C29F566F1002118EC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE73BA9D29F56705002118EC /* NSNotificationName.swift */,
+				CE0E545129F5C00100447532 /* LocalState.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		CE77D04B29E88EB100C2F044 = {
@@ -133,6 +175,7 @@
 		CE77D05629E88EB100C2F044 /* Drinko */ = {
 			isa = PBXGroup;
 			children = (
+				CE73BA9C29F566F1002118EC /* Utils */,
 				CE77D07F29E8963900C2F044 /* Fonts */,
 				CE77D07629E88FA000C2F044 /* API */,
 				CE77D07529E88F9400C2F044 /* Managers */,
@@ -180,6 +223,7 @@
 		CE77D07229E88F6D00C2F044 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE0E544E29F5BCCE00447532 /* MainViews */,
 				CEECA28429F1DE4900717A0F /* Buttons */,
 				CE3F7CE929EAA8A500DDC7DA /* Auth */,
 				CE77D07A29E8918200C2F044 /* Onboarding */,
@@ -206,6 +250,7 @@
 		CE77D07529E88F9400C2F044 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CE73BA9A29F55258002118EC /* AlertsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -343,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3F7CEC29EAA8CF00DDC7DA /* SignInView.swift in Sources */,
+				CE0E545229F5C00100447532 /* LocalState.swift in Sources */,
 				CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */,
 				CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */,
 				CEECA28629F1DE6A00717A0F /* DefaultUIButton.swift in Sources */,
@@ -351,10 +397,16 @@
 				CE3F7CF329EAB74B00DDC7DA /* InitialAuthViewController.swift in Sources */,
 				CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */,
 				CE77D07C29E8919D00C2F044 /* OnboardingView.swift in Sources */,
+				CE73BA9729F54F0F002118EC /* RegistrationUIView.swift in Sources */,
+				CE73BA9B29F55258002118EC /* AlertsManager.swift in Sources */,
 				CE3F7CF529EAB78000DDC7DA /* InitialAuthView.swift in Sources */,
+				CE73BAA029F596D2002118EC /* ProfileRightBarItemView.swift in Sources */,
 				CE3F7CE829EAA88E00DDC7DA /* SignInViewController.swift in Sources */,
 				CE77D08D29E8A30400C2F044 /* UIView+Ext.swift in Sources */,
+				CE73BA9929F5502E002118EC /* RegistrationViewViewModel.swift in Sources */,
 				CE77D07929E8915700C2F044 /* OnboardingViewController.swift in Sources */,
+				CE0E545029F5BCF300447532 /* MainUIView.swift in Sources */,
+				CE73BA9E29F56705002118EC /* NSNotificationName.swift in Sources */,
 				CE77D07E29E891D400C2F044 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,26 +1,26 @@
 //
-//  SignInViewViewModel.swift
+//  RegistrationViewModel.swift
 //  Drinko
 //
-//  Created by Arthur Obichkin on 15/04/23.
+//  Created by Arthur Obichkin on 23/04/23.
 //
 
 import UIKit
 import FirebaseAuth
 
-final class SignInViewViewModel: NSObject{
+final class RegistrationViewViewModel: NSObject{
     override init(){
         super.init()
     }
     
-    public func signInUser(email:String?, password:String?,_ completion: @escaping (Result<AuthDataResult,Error>) -> Void){
+    public func registerUser(email:String?, password:String?,_ completion: @escaping (Result<AuthDataResult,Error>) -> Void){
         if let email = email,let password = password{
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                guard let data = authResult else{
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                guard let data = authResult, error == nil else{
+                    if let error = error{
+                        completion(.failure(error))
+                    }
                     return
-                }
-                if let error = error{
-                    completion(.failure(error))
                 }
                 completion(.success(data))
             }
@@ -29,7 +29,7 @@ final class SignInViewViewModel: NSObject{
 }
 
 
-extension SignInViewViewModel: UITextFieldDelegate{
+extension RegistrationViewViewModel: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true);
         return true;
