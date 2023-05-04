@@ -46,8 +46,8 @@ extension MainViewController{
     private func layout(){
         view.addSubview(mainUIView)
         NSLayoutConstraint.activate([
-            mainUIView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            mainUIView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            mainUIView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            mainUIView.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 2),
             mainUIView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mainUIView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
