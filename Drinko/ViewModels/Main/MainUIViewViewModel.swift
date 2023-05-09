@@ -9,34 +9,71 @@ import UIKit
 
 
 protocol MainUIViewViewModelDelegate: AnyObject{
-    //    func didLoadInitialEpisodes()
-    //    func didSelectEpisode(episode:RMEpisode)
-    //    func didLoadMoreEpisodes(with newIndexPaths: [IndexPath])
+        func didLoadInitialData()
 }
 
 final class MainUIViewViewModel:NSObject {
     weak var delegate: MainUIViewViewModelDelegate?
     override init() {
         super.init()
-        setupSections()
+//        setupSections()
     }
     
     enum SectionType {
-        case categories(viewModel:[CategoryModel])
+        case categories(viewModel:CategoryModel)
         case mixes(viewModel:[MixesModel])
+    }
+    
+    public func getSectionsData(){
+        let group = DispatchGroup();
+        var categories:CategoryModel?
+        var glasses:GlassModel?
+        group.enter()
+        Requests.shared.getCategories { response in
+            defer{
+                group.leave()
+            }
+            switch response.result{
+            case .success(let categoriesData):
+                categories = categoriesData
+            case .failure(let error):
+                print(error)
+            }
+        }
+        group.enter()
+        Requests.shared.getGlasses { response in
+            defer{
+                group.leave()
+            }
+            switch response.result{
+            case .success(let glassesData):
+                glasses = glassesData
+            case .failure(let error):
+                print(error)
+            }
+        }
+        group.notify(queue: .main){
+            guard let categories = categories else{
+                return
+            }
+            self.sections = [
+                .categories(viewModel: categories),
+                .mixes(viewModel: [
+                    .init(title: "Mix one", imageUrl: "", time: "20", type: "Cocktail", likes: 10, difficulty: "Low", ratingCount: 4),
+                    .init(title: "Mix two", imageUrl: "", time: "20", type: "Mocktail", likes: 10, difficulty: "Low", ratingCount: 4),
+                    .init(title: "Mix three", imageUrl: "", time: "20", type: "Beer", likes: 10, difficulty: "Low", ratingCount: 4),
+                    .init(title: "Mix four", imageUrl: "", time: "20", type: "Shake", likes: 10, difficulty: "Low", ratingCount: 4),
+                    .init(title: "Mix five", imageUrl: "", time: "20", type: "Long", likes: 10, difficulty: "Low", ratingCount: 4),
+                ])
+            ]
+            self.delegate?.didLoadInitialData()
+        }
     }
     
     public var sections = [SectionType]()
     
     private func setupSections(){
         sections = [
-            .categories(viewModel: [
-                .init(title: "Cocktails", imageUrl: "", mixesCount: 2),
-                .init(title: "Mocktails", imageUrl: "", mixesCount: 4),
-                .init(title: "Shakes", imageUrl: "", mixesCount: 7),
-                .init(title: "Long", imageUrl: "", mixesCount: 5),
-                .init(title: "Beer", imageUrl: "", mixesCount: 3),
-            ]),
             .mixes(viewModel: [
                 .init(title: "Mix one", imageUrl: "", time: "20", type: "Cocktail", likes: 10, difficulty: "Low", ratingCount: 4),
                 .init(title: "Mix two", imageUrl: "", time: "20", type: "Mocktail", likes: 10, difficulty: "Low", ratingCount: 4),
@@ -61,7 +98,7 @@ final class MainUIViewViewModel:NSObject {
             layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .fractionalHeight(1.0))
         )
         item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 8);
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.27), heightDimension: .fractionalHeight(0.2)), subitems: [item])
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(0.2)), subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         let footerHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -103,7 +140,7 @@ extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSourc
                 sectionHeader.headerTitle.text = "Mixes"
             }
             return sectionHeader
-        } else { //No footer in this case but can add option for that
+        } else {
             return UICollectionReusableView()
         }
     }
@@ -114,7 +151,7 @@ extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSourc
         let sectionType = sections[section]
         switch sectionType {
         case .categories(let categories):
-            return categories.count
+            return categories.drinks.count
         case .mixes(let mixes):
             return mixes.count
         }
@@ -124,7 +161,9 @@ extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSourc
         let section = sections[indexPath.section]
         switch section{
         case .categories(let categories):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath)
+            let category = categories.drinks[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as! CategoriesCollectionViewCell
+            cell.configure(with: category.strCategory)
             return cell
         case .mixes(let mixes):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MixesCollectionViewCell.identifier, for: indexPath)

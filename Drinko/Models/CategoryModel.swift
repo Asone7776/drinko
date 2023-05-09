@@ -8,8 +8,11 @@
 import Foundation
 
 
-struct CategoryModel {
-    let title: String
-    let imageUrl: String
-    let mixesCount: Int
+struct CategoryModel:Codable {
+    let drinks: [CategorySingle]
+}
+
+
+struct CategorySingle:Codable{
+    let strCategory:String
 }

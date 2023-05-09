@@ -68,13 +68,13 @@ extension SceneDelegate:OnboardingViewControllerDelegate {
 //MARK: Actions for notifications
 extension SceneDelegate {
     @objc func didLogout() {
-//        let firebaseAuth = Auth.auth()
-//        do {
-//          try firebaseAuth.signOut()
-//
-//        } catch let signOutError as NSError {
-//          print("Error signing out: %@", signOutError)
-//        }
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
         setRootViewController(rootViewController);
     }
     @objc func didGoToMain() {

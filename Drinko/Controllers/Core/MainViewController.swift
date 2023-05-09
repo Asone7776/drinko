@@ -18,9 +18,8 @@ final class MainViewController: UIViewController {
         layout()
         setupNavBar()
         profileRightView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedRightButton)))
+        
     }
-    
-
 }
 
 extension MainViewController{
@@ -47,7 +46,7 @@ extension MainViewController{
         view.addSubview(mainUIView)
         NSLayoutConstraint.activate([
             mainUIView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            mainUIView.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: mainUIView.trailingAnchor, multiplier: 2),
             mainUIView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mainUIView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
@@ -55,13 +54,13 @@ extension MainViewController{
 }
 //MARK: Actions
 extension MainViewController{
- 
+    
     @objc func didTappedLeftButton(){
         print("tapped left")
     }
     @objc func didTappedRightButton(){
         profileRightView.showAnimation {
-            
+            self.navigationController?.pushViewController(SettingsViewController(), animated: true);
         }
     }
 }
