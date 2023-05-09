@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol SettingsViewDelegate:AnyObject {
     func didSelectUrl(url:URL)
     func didSelectRate()
+    func didSelectLogout()
 }
 
 
@@ -56,6 +58,19 @@ extension SettingsView{
     }
 }
 extension SettingsView:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let user = Auth.auth().currentUser,let email = user.email else{
+            return nil
+        }
+        let view = SettingsTableHeaderView(email: email)
+        view.registerForLogout {
+            self.delegate?.didSelectLogout()
+        }
+        return view
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        SettingsTableHeaderView.heightForHeader
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedItem = viewModel.cells[indexPath.row]
