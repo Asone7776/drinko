@@ -16,18 +16,17 @@ final class MainUIViewViewModel:NSObject {
     weak var delegate: MainUIViewViewModelDelegate?
     override init() {
         super.init()
-//        setupSections()
     }
     
     enum SectionType {
         case categories(viewModel:CategoryModel)
-        case mixes(viewModel:[MixesModel])
+        case ingredients(viewModel:IngredientsModel)
     }
     
     public func getSectionsData(){
         let group = DispatchGroup();
         var categories:CategoryModel?
-        var glasses:GlassModel?
+        var ingredients:IngredientsModel?
         group.enter()
         Requests.shared.getCategories { response in
             defer{
@@ -41,30 +40,25 @@ final class MainUIViewViewModel:NSObject {
             }
         }
         group.enter()
-        Requests.shared.getGlasses { response in
+        Requests.shared.getIngredients { response in
             defer{
                 group.leave()
             }
             switch response.result{
-            case .success(let glassesData):
-                glasses = glassesData
+            case .success(let ingredientsData):
+                ingredients = ingredientsData
             case .failure(let error):
                 print(error)
             }
         }
         group.notify(queue: .main){
-            guard let categories = categories else{
+            guard let categories = categories,let ingredients = ingredients else{
                 return
             }
+
             self.sections = [
                 .categories(viewModel: categories),
-                .mixes(viewModel: [
-                    .init(title: "Mix one", imageUrl: "", time: "20", type: "Cocktail", likes: 10, difficulty: "Low", ratingCount: 4),
-                    .init(title: "Mix two", imageUrl: "", time: "20", type: "Mocktail", likes: 10, difficulty: "Low", ratingCount: 4),
-                    .init(title: "Mix three", imageUrl: "", time: "20", type: "Beer", likes: 10, difficulty: "Low", ratingCount: 4),
-                    .init(title: "Mix four", imageUrl: "", time: "20", type: "Shake", likes: 10, difficulty: "Low", ratingCount: 4),
-                    .init(title: "Mix five", imageUrl: "", time: "20", type: "Long", likes: 10, difficulty: "Low", ratingCount: 4),
-                ])
+                .ingredients(viewModel: ingredients)
             ]
             self.delegate?.didLoadInitialData()
         }
@@ -72,24 +66,12 @@ final class MainUIViewViewModel:NSObject {
     
     public var sections = [SectionType]()
     
-    private func setupSections(){
-        sections = [
-            .mixes(viewModel: [
-                .init(title: "Mix one", imageUrl: "", time: "20", type: "Cocktail", likes: 10, difficulty: "Low", ratingCount: 4),
-                .init(title: "Mix two", imageUrl: "", time: "20", type: "Mocktail", likes: 10, difficulty: "Low", ratingCount: 4),
-                .init(title: "Mix three", imageUrl: "", time: "20", type: "Beer", likes: 10, difficulty: "Low", ratingCount: 4),
-                .init(title: "Mix four", imageUrl: "", time: "20", type: "Shake", likes: 10, difficulty: "Low", ratingCount: 4),
-                .init(title: "Mix five", imageUrl: "", time: "20", type: "Long", likes: 10, difficulty: "Low", ratingCount: 4),
-            ])
-        ]
-    }
-    
     public func createSections(_ sectionIndex: Int) -> NSCollectionLayoutSection{
         switch sections[sectionIndex]{
         case .categories:
             return createCategoriesSection()
-        case .mixes:
-            return createMixesSection()
+        case .ingredients:
+            return createIngredientsSection()
         }
     }
     
@@ -111,7 +93,7 @@ final class MainUIViewViewModel:NSObject {
         return section
     }
     
-    private func createMixesSection() -> NSCollectionLayoutSection{
+    private func createIngredientsSection() -> NSCollectionLayoutSection{
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .fractionalHeight(1.0))
         )
@@ -136,8 +118,8 @@ extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSourc
             switch sections[indexPath.section]{
             case .categories:
                 sectionHeader.headerTitle.text = "Categories"
-            case .mixes:
-                sectionHeader.headerTitle.text = "Mixes"
+            case .ingredients:
+                sectionHeader.headerTitle.text = "Ingredients"
             }
             return sectionHeader
         } else {
@@ -152,8 +134,8 @@ extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSourc
         switch sectionType {
         case .categories(let categories):
             return categories.drinks.count
-        case .mixes(let mixes):
-            return mixes.count
+        case .ingredients(let ingredients):
+            return ingredients.drinks.count
         }
     }
     
@@ -162,11 +144,17 @@ extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSourc
         switch section{
         case .categories(let categories):
             let category = categories.drinks[indexPath.row]
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as! CategoriesCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell else{
+                fatalError("No CategoriesCollectionViewCell cell")
+            }
             cell.configure(with: category.strCategory)
             return cell
-        case .mixes(let mixes):
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MixesCollectionViewCell.identifier, for: indexPath)
+        case .ingredients(let ingredients):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IngredientsCollectionViewCell.identifier, for: indexPath) as? IngredientsCollectionViewCell else{
+                fatalError("No IngredientsCollectionViewCell cell")
+            }
+            let ingredient = ingredients.drinks[indexPath.row]
+            cell.configure(with: ingredient)
             return cell
         }
     }

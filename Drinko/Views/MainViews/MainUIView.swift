@@ -34,7 +34,7 @@ final class MainUIView: UIView {
         view.dataSource = viewModel
         view.delegate = viewModel
         view.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier)
-        view.register(MixesCollectionViewCell.self, forCellWithReuseIdentifier: MixesCollectionViewCell.identifier)
+        view.register(IngredientsCollectionViewCell.self, forCellWithReuseIdentifier: IngredientsCollectionViewCell.identifier)
         view.register(MainCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainCollectionViewHeader.identifier)
         view.isHidden = true
         view.alpha = 0
@@ -67,6 +67,7 @@ extension MainUIView:MainUIViewViewModelDelegate{
     func didLoadInitialData() {
         collectionView.reloadData()
         activityIndicator.stopAnimating()
+        self.collectionView.reloadData()
         UIView.animate(withDuration: 0.3) {
             self.collectionView.isHidden = false
             self.collectionView.alpha = 1.0

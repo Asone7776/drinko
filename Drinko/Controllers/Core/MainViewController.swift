@@ -54,10 +54,10 @@ extension MainViewController{
 }
 //MARK: Actions
 extension MainViewController{
-    
     @objc func didTappedLeftButton(){
         print("tapped left")
     }
+    
     @objc func didTappedRightButton(){
         profileRightView.showAnimation {
             self.navigationController?.pushViewController(SettingsViewController(), animated: true);

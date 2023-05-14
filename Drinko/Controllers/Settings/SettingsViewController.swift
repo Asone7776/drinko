@@ -18,7 +18,6 @@ final class SettingsViewController: UIViewController {
         settingsView.delegate = self
         style()
         layout()
-//        print(Auth.auth().currentUser?.email)
     }
 }
 extension SettingsViewController{
@@ -38,12 +37,11 @@ extension SettingsViewController{
 
 extension SettingsViewController:SettingsViewDelegate{
     func didSelectLogout() {
-        AlertManager.createConfirmAlert(title: "Exit", message: "Are ypu sure for logout") {
+        AlertManager.createConfirmAlert(title: "Exit", message: "Are you sure for logout?") {
             NotificationCenter.default.post(name: .logout, object: nil);
         } _: { alert in
             self.present(alert,animated: true)
         }
-
     }
     
     func didSelectUrl(url: URL) {
