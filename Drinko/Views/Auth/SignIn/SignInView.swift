@@ -86,13 +86,18 @@ final class SignInView: UIView {
 //MARK: Actions
 extension SignInView{
     @objc private func didPressedSignIn(){
+        submitButton.showLoading()
         viewModel.signInUser(email: emailTextField.text, password: passwordTextField.text){[weak self] result in
             guard let self = self else{
                 return
             }
+            defer{
+                self.submitButton.hideLoading()
+            }
             switch result {
             case .success(_):
                 self.delegate?.didSignInWithSuccess()
+                
             case .failure(let failure):
                 self.delegate?.didSignInWithError(failure.localizedDescription)
             }

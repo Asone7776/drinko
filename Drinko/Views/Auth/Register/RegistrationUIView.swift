@@ -84,9 +84,13 @@ final class RegistrationUIView: UIView {
 //MARK: Actions
 extension RegistrationUIView{
     @objc private func didPressedRegister(){
+        submitButton.showLoading()
         viewModel.registerUser(email: emailTextField.text, password: passwordTextField.text){[weak self] result in
             guard let self = self else{
                 return
+            }
+            defer{
+                self.submitButton.hideLoading()
             }
             switch result {
             case .success(_):

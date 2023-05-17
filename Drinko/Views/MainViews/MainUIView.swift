@@ -67,7 +67,6 @@ extension MainUIView:MainUIViewViewModelDelegate{
     func didLoadInitialData() {
         collectionView.reloadData()
         activityIndicator.stopAnimating()
-        self.collectionView.reloadData()
         UIView.animate(withDuration: 0.3) {
             self.collectionView.isHidden = false
             self.collectionView.alpha = 1.0

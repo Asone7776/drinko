@@ -12,17 +12,14 @@ final class IngredientsCollectionViewCell: UICollectionViewCell {
     private var model: SingleIngredient?{
         didSet{
             label.text = model?.strIngredient1
-            imageView.kf.indicator?.startAnimatingView()
             imageView.kf.setImage(with: model?.bigImageUrl)
-//            imageView.kf.indicator?.stopAnimatingView()
         }
     }
     static let identifier = "IngredientsCollectionViewCell"
     let stack:UIStackView = {
-       let stack = UIStackView()
+        let stack = UIStackView()
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
         stack.alignment = .center
         return stack
     }()
@@ -30,6 +27,7 @@ final class IngredientsCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.backgroundColor = .yellow
         return imageView
     }()
     let label: UILabel = {
@@ -58,18 +56,20 @@ final class IngredientsCollectionViewCell: UICollectionViewCell {
 }
 extension IngredientsCollectionViewCell{
     private func style(){
-        backgroundColor = Constants.Colors.mainColor
+        backgroundColor = Constants.Colors.secondaryColor
+        layer.cornerRadius = 8
+        clipsToBounds = true
     }
     private func layout(){
         addSubview(stack)
         stack.addArrangedSubview(imageView)
         stack.addArrangedSubview(label)
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stack.topAnchor.constraint(equalTo: topAnchor),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stack.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            imageView.heightAnchor.constraint(equalToConstant: 200)
+            stack.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
+            stack.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
+            label.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.2),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: stack.trailingAnchor, multiplier: 1),
+            bottomAnchor.constraint(equalToSystemSpacingBelow: stack.bottomAnchor, multiplier: 1)
         ])
     }
 }

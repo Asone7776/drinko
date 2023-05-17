@@ -37,6 +37,8 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
 extension CategoriesCollectionViewCell{
     private func style(){
         backgroundColor = Constants.Colors.categoryColor
+        layer.cornerRadius = 8
+        clipsToBounds = true
     }
     private func layout(){
         addSubview(label)

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 
 final class SignInViewViewModel: NSObject{
+    
     override init(){
         super.init()
     }
@@ -16,11 +17,13 @@ final class SignInViewViewModel: NSObject{
     public func signInUser(email:String?, password:String?,_ completion: @escaping (Result<AuthDataResult,Error>) -> Void){
         if let email = email,let password = password{
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                guard let data = authResult else{
-                    return
-                }
                 if let error = error{
                     completion(.failure(error))
+                    return
+                }
+                
+                guard let data = authResult else{
+                    return
                 }
                 completion(.success(data))
             }
@@ -36,10 +39,5 @@ extension SignInViewViewModel: UITextFieldDelegate{
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true;
-//        if textField.text != ""{
-//            return true;
-//        }else{
-//            return false;
-//        }
     }
 }

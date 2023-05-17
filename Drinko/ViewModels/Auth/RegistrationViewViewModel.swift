@@ -36,10 +36,5 @@ extension RegistrationViewViewModel: UITextFieldDelegate{
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true;
-//        if textField.text != ""{
-//            return true;
-//        }else{
-//            return false;
-//        }
     }
 }

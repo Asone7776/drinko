@@ -74,4 +74,12 @@ extension DefaultUIButton{
             defaultBackgroundColor = color
         }
     }
+    public func showLoading(){
+        self.configuration?.showsActivityIndicator = true
+        self.isEnabled = false
+    }
+    public func hideLoading(){
+        self.configuration?.showsActivityIndicator = false
+        self.isEnabled = true
+    }
 }
