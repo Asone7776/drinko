@@ -62,6 +62,7 @@
 		CEC09AD02A18E38000CB7DC7 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09ACF2A18E38000CB7DC7 /* MainSearchView.swift */; };
 		CEC09AD22A18E5FD00CB7DC7 /* CocktailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AD12A18E5FD00CB7DC7 /* CocktailModel.swift */; };
 		CEC09AD52A18F52400CB7DC7 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AD42A18F52400CB7DC7 /* SearchResultTableViewCell.swift */; };
+		CEC09AD82A190BAB00CB7DC7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEC09AD72A190BAB00CB7DC7 /* IQKeyboardManagerSwift */; };
 		CEECA28629F1DE6A00717A0F /* DefaultUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */; };
 		CEF2E06F2A06572000944364 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2E06E2A06572000944364 /* Requests.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +134,7 @@
 				CE3F7CE529EA939800DDC7DA /* FirebaseFirestoreSwift in Frameworks */,
 				CE3F7CF829EAD21D00DDC7DA /* Lottie in Frameworks */,
 				CE8DBEAE2A11322100D94C65 /* Kingfisher in Frameworks */,
+				CEC09AD82A190BAB00CB7DC7 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +471,7 @@
 				CE3F7CF729EAD21D00DDC7DA /* Lottie */,
 				CE9DA5F82A0656A900AC750D /* Alamofire */,
 				CE8DBEAD2A11322100D94C65 /* Kingfisher */,
+				CEC09AD72A190BAB00CB7DC7 /* IQKeyboardManagerSwift */,
 			);
 			productName = Drinko;
 			productReference = CE77D05429E88EB100C2F044 /* Drinko.app */;
@@ -503,6 +506,7 @@
 				CE3F7CF629EAD21D00DDC7DA /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				CE9DA5F72A0656A900AC750D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CE8DBEAC2A11322100D94C65 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CEC09AD62A190BAB00CB7DC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = CE77D05529E88EB100C2F044 /* Products */;
 			projectDirPath = "";
@@ -819,6 +823,14 @@
 				minimumVersion = 5.6.1;
 			};
 		};
+		CEC09AD62A190BAB00CB7DC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -846,6 +858,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE9DA5F72A0656A900AC750D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		CEC09AD72A190BAB00CB7DC7 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC09AD62A190BAB00CB7DC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
