@@ -9,7 +9,7 @@ import UIKit
 
 final class MainViewController: UIViewController {
     let profileRightView = ProfileRightBarItemView()
-    
+    let searchController = UISearchController(searchResultsController: SearchResultViewController())
     let mainUIView = MainUIView();
     
     override func viewDidLoad() {
@@ -18,7 +18,14 @@ final class MainViewController: UIViewController {
         layout()
         setupNavBar()
         profileRightView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedRightButton)))
-        
+        setupSearchController()
+    }
+    private func setupSearchController(){
+        searchController.searchResultsUpdater = self
+//        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search cocktails"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
     }
 }
 
@@ -57,11 +64,20 @@ extension MainViewController{
     @objc func didTappedLeftButton(){
         print("tapped left")
     }
-    
     @objc func didTappedRightButton(){
         profileRightView.showAnimation {
             self.navigationController?.pushViewController(SettingsViewController(), animated: true);
         }
     }
 }
+//MARK: Search methods
 
+extension MainViewController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else{
+            return
+        }
+        let vc = searchController.searchResultsController as? SearchResultViewController
+        vc?.searchResultText = text
+    }
+}

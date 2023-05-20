@@ -102,12 +102,21 @@ final class MainUIViewViewModel:NSObject {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         let footerHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .absolute(40.0))
+                                                      heightDimension: .absolute(50.0))
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: footerHeaderSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top)
         section.boundarySupplementaryItems = [header]
+//        section.visibleItemsInvalidationHandler = { (items, offset, environment) in
+//            items.forEach { item in
+//                let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0)
+//                let minScale: CGFloat = 0.7
+//                let maxScale: CGFloat = 1.1
+//                let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale)
+//                item.transform = CGAffineTransform(scaleX: scale, y: scale)
+//            }
+//        }
         return section
     }
 }

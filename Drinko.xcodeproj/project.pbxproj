@@ -57,6 +57,11 @@
 		CEBB8A5A2A043D6E000F8C70 /* MixesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB8A592A043D6E000F8C70 /* MixesModel.swift */; };
 		CEBB8A5C2A0443BC000F8C70 /* IngredientsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB8A5B2A0443BC000F8C70 /* IngredientsCollectionViewCell.swift */; };
 		CEBB8A5F2A04470A000F8C70 /* MainCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB8A5E2A04470A000F8C70 /* MainCollectionViewHeader.swift */; };
+		CEC09ACA2A18D88400CB7DC7 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AC92A18D88400CB7DC7 /* SearchResultViewController.swift */; };
+		CEC09ACD2A18E33100CB7DC7 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09ACC2A18E33100CB7DC7 /* SearchViewModel.swift */; };
+		CEC09AD02A18E38000CB7DC7 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09ACF2A18E38000CB7DC7 /* MainSearchView.swift */; };
+		CEC09AD22A18E5FD00CB7DC7 /* CocktailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AD12A18E5FD00CB7DC7 /* CocktailModel.swift */; };
+		CEC09AD52A18F52400CB7DC7 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AD42A18F52400CB7DC7 /* SearchResultTableViewCell.swift */; };
 		CEECA28629F1DE6A00717A0F /* DefaultUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */; };
 		CEF2E06F2A06572000944364 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2E06E2A06572000944364 /* Requests.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +114,11 @@
 		CEBB8A592A043D6E000F8C70 /* MixesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixesModel.swift; sourceTree = "<group>"; };
 		CEBB8A5B2A0443BC000F8C70 /* IngredientsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEBB8A5E2A04470A000F8C70 /* MainCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewHeader.swift; sourceTree = "<group>"; };
+		CEC09AC92A18D88400CB7DC7 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		CEC09ACC2A18E33100CB7DC7 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CEC09ACF2A18E38000CB7DC7 /* MainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
+		CEC09AD12A18E5FD00CB7DC7 /* CocktailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailModel.swift; sourceTree = "<group>"; };
+		CEC09AD42A18F52400CB7DC7 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUIButton.swift; sourceTree = "<group>"; };
 		CEF2E06E2A06572000944364 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,6 +254,7 @@
 		CE77D07029E88F5800C2F044 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEC09AC82A18D86F00CB7DC7 /* Search */,
 				CE94ECE42A0A510100859AC3 /* Settings */,
 				CE3F7CE629EAA87C00DDC7DA /* Auth */,
 				CE77D07729E8911F00C2F044 /* Core */,
@@ -259,6 +270,7 @@
 				CEAB9DF52A06E9D900164759 /* GlassModel.swift */,
 				CE94ECEA2A0A526900859AC3 /* SettingsOptions.swift */,
 				CE8DBEAF2A11334600D94C65 /* IngredientsModel.swift */,
+				CEC09AD12A18E5FD00CB7DC7 /* CocktailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +278,7 @@
 		CE77D07229E88F6D00C2F044 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC09ACE2A18E35300CB7DC7 /* Search */,
 				CE94ECE72A0A51F700859AC3 /* Settings */,
 				CE0E544E29F5BCCE00447532 /* MainViews */,
 				CEECA28429F1DE4900717A0F /* Buttons */,
@@ -278,6 +291,7 @@
 		CE77D07329E88F7400C2F044 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CEC09ACB2A18E31800CB7DC7 /* Search */,
 				CE94ECEC2A0A53A700859AC3 /* Settings */,
 				CEBB8A512A043296000F8C70 /* Main */,
 				CE3F7CED29EAA8D800DDC7DA /* Auth */,
@@ -390,6 +404,39 @@
 				CEBB8A5E2A04470A000F8C70 /* MainCollectionViewHeader.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		CEC09AC82A18D86F00CB7DC7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CEC09AC92A18D88400CB7DC7 /* SearchResultViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CEC09ACB2A18E31800CB7DC7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CEC09ACC2A18E33100CB7DC7 /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CEC09ACE2A18E35300CB7DC7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CEC09AD32A18F50700CB7DC7 /* Cells */,
+				CEC09ACF2A18E38000CB7DC7 /* MainSearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CEC09AD32A18F50700CB7DC7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CEC09AD42A18F52400CB7DC7 /* SearchResultTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CEECA28429F1DE4900717A0F /* Buttons */ = {
@@ -505,10 +552,12 @@
 				CEBB8A5A2A043D6E000F8C70 /* MixesModel.swift in Sources */,
 				CE3F7CEF29EAA8F000DDC7DA /* SignInViewViewModel.swift in Sources */,
 				CE3F7CFC29EB4D4000DDC7DA /* RegistrationViewController.swift in Sources */,
+				CEC09AD52A18F52400CB7DC7 /* SearchResultTableViewCell.swift in Sources */,
 				CE3F7CF329EAB74B00DDC7DA /* InitialAuthViewController.swift in Sources */,
 				CE94ECEB2A0A526900859AC3 /* SettingsOptions.swift in Sources */,
 				CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */,
 				CE77D07C29E8919D00C2F044 /* OnboardingView.swift in Sources */,
+				CEC09ACD2A18E33100CB7DC7 /* SearchViewModel.swift in Sources */,
 				CEAB9DF62A06E9D900164759 /* GlassModel.swift in Sources */,
 				CE94ECF22A0A581300859AC3 /* SettingsTableViewCell.swift in Sources */,
 				CE8DBEB02A11334600D94C65 /* IngredientsModel.swift in Sources */,
@@ -519,6 +568,7 @@
 				CE3F7CF529EAB78000DDC7DA /* InitialAuthView.swift in Sources */,
 				CE73BAA029F596D2002118EC /* ProfileRightBarItemView.swift in Sources */,
 				CEBB8A5F2A04470A000F8C70 /* MainCollectionViewHeader.swift in Sources */,
+				CEC09AD02A18E38000CB7DC7 /* MainSearchView.swift in Sources */,
 				CE3F7CE829EAA88E00DDC7DA /* SignInViewController.swift in Sources */,
 				CE94ECE62A0A511D00859AC3 /* SettingsViewController.swift in Sources */,
 				CE77D08D29E8A30400C2F044 /* UIView+Ext.swift in Sources */,
@@ -527,6 +577,8 @@
 				CE0E545029F5BCF300447532 /* MainUIView.swift in Sources */,
 				CE73BA9E29F56705002118EC /* NSNotificationName.swift in Sources */,
 				CE94ECE92A0A520B00859AC3 /* SettingsView.swift in Sources */,
+				CEC09ACA2A18D88400CB7DC7 /* SearchResultViewController.swift in Sources */,
+				CEC09AD22A18E5FD00CB7DC7 /* CocktailModel.swift in Sources */,
 				CE77D07E29E891D400C2F044 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,4 +22,8 @@ final class Requests {
     public func getIngredients(_ completion:@escaping (DataResponse<IngredientsModel,AFError>)->Void){
         AF.request("\(baseUrl)/list.php?i=list").validate().responseDecodable(of: IngredientsModel.self, completionHandler: completion)
     }
+    
+    public func searchCocktailsByName(with searchItem: String,_ completion:@escaping (DataResponse<CocktailModel,AFError>)->Void){
+        AF.request("\(baseUrl)/search.php?s=\(searchItem)").validate().responseDecodable(of: CocktailModel.self, completionHandler: completion)
+    }
 }

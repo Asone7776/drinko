@@ -12,6 +12,7 @@ final class IngredientsCollectionViewCell: UICollectionViewCell {
     private var model: SingleIngredient?{
         didSet{
             label.text = model?.strIngredient1
+            imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: model?.bigImageUrl)
         }
     }
@@ -27,7 +28,6 @@ final class IngredientsCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.backgroundColor = .yellow
         return imageView
     }()
     let label: UILabel = {
