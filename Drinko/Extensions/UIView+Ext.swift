@@ -7,6 +7,19 @@
 
 import UIKit
 
+
+extension UIViewController{
+    func setTabBarImage(imageName:String,title:String,tag:Int){
+        let configuration = UIImage.SymbolConfiguration(scale: .large)
+        let image = UIImage(systemName: imageName, withConfiguration: configuration)
+        tabBarItem = UITabBarItem(title: title, image: image, tag: tag)
+    }
+    func setupTitleAndBackground(title:String){
+        self.title = title;
+        self.view.backgroundColor = .systemBackground;
+    }
+}
+
 extension UIView{
     public func addSubviews(_ views:UIView...){
         views.forEach { addSubview($0) }

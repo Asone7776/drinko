@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainPageViewController: UIViewController {
     let profileRightView = ProfileRightBarItemView()
     let searchController = UISearchController(searchResultsController: SearchResultViewController())
     let mainUIView = MainUIView();
@@ -22,20 +22,19 @@ final class MainViewController: UIViewController {
     }
     private func setupSearchController(){
         searchController.searchResultsUpdater = self
-//        searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.placeholder = "Search cocktails"
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
     }
 }
 
-extension MainViewController{
+extension MainPageViewController{
     private func setupNavBar(){
         let imageView = UIImageView()
         let image = UIImage(named: "drinko-logo")
         imageView.image = image
         navigationController?.navigationBar.topItem?.titleView = imageView
-        setupLeftBarButton()
+        //        setupLeftBarButton()
         setupRightBarButton()
     }
     
@@ -60,19 +59,19 @@ extension MainViewController{
     }
 }
 //MARK: Actions
-extension MainViewController{
+extension MainPageViewController{
     @objc func didTappedLeftButton(){
         print("tapped left")
     }
     @objc func didTappedRightButton(){
-        profileRightView.showAnimation {
-            self.navigationController?.pushViewController(SettingsViewController(), animated: true);
-        }
+        //        profileRightView.showAnimation {
+        //            self.navigationController?.pushViewController(SettingsViewController(), animated: true);
+        //        }
     }
 }
 //MARK: Search methods
 
-extension MainViewController: UISearchResultsUpdating{
+extension MainPageViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else{
             return

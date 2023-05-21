@@ -9,10 +9,11 @@ import UIKit
 import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     let rootViewController = UINavigationController(rootViewController: InitialAuthViewController())
     var onboardingVC = OnboardingViewController()
+    var tabsVC = TabsViewController()
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -24,9 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         registerForNotification()
     }
-    
 }
-
 
 extension SceneDelegate {
     func setRootViewController(_ vc: UIViewController, animated: Bool = true) {
@@ -53,7 +52,7 @@ extension SceneDelegate {
     func selectInitialViewController() -> UIViewController{
         let user = Auth.auth().currentUser
         if user != nil {
-            return UINavigationController(rootViewController: MainViewController());
+            return tabsVC
         } else {
             return LocalState.hasOnboarded ? rootViewController : onboardingVC
         }
@@ -70,14 +69,14 @@ extension SceneDelegate {
     @objc func didLogout() {
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut()
-
+            try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
         setRootViewController(rootViewController);
     }
     @objc func didGoToMain() {
-        setRootViewController(UINavigationController(rootViewController: MainViewController()));
+        tabsVC.selectedIndex = 0
+        setRootViewController(tabsVC);
     }
 }

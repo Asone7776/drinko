@@ -13,7 +13,7 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Raleway SemiBold", size: 14)
-        label.textColor = .label
+        label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 0
         return label

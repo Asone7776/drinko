@@ -27,7 +27,7 @@
 		CE73BAA029F596D2002118EC /* ProfileRightBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73BA9F29F596D2002118EC /* ProfileRightBarItemView.swift */; };
 		CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05729E88EB100C2F044 /* AppDelegate.swift */; };
 		CE77D05A29E88EB100C2F044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05929E88EB100C2F044 /* SceneDelegate.swift */; };
-		CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05B29E88EB100C2F044 /* MainViewController.swift */; };
+		CE77D05C29E88EB100C2F044 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D05B29E88EB100C2F044 /* MainPageViewController.swift */; };
 		CE77D06129E88EB200C2F044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE77D06029E88EB200C2F044 /* Assets.xcassets */; };
 		CE77D06429E88EB200C2F044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE77D06229E88EB200C2F044 /* LaunchScreen.storyboard */; };
 		CE77D07929E8915700C2F044 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77D07829E8915700C2F044 /* OnboardingViewController.swift */; };
@@ -63,6 +63,9 @@
 		CEC09AD22A18E5FD00CB7DC7 /* CocktailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AD12A18E5FD00CB7DC7 /* CocktailModel.swift */; };
 		CEC09AD52A18F52400CB7DC7 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AD42A18F52400CB7DC7 /* SearchResultTableViewCell.swift */; };
 		CEC09AD82A190BAB00CB7DC7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEC09AD72A190BAB00CB7DC7 /* IQKeyboardManagerSwift */; };
+		CEC09ADA2A1A31B900CB7DC7 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09AD92A1A31B900CB7DC7 /* TabsViewController.swift */; };
+		CEC09ADD2A1A36AD00CB7DC7 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09ADC2A1A36AD00CB7DC7 /* FavoritesViewController.swift */; };
+		CEC09ADF2A1A3AF100CB7DC7 /* TabBar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC09ADE2A1A3AF100CB7DC7 /* TabBar+Ext.swift */; };
 		CEECA28629F1DE6A00717A0F /* DefaultUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */; };
 		CEF2E06F2A06572000944364 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2E06E2A06572000944364 /* Requests.swift */; };
 /* End PBXBuildFile section */
@@ -86,7 +89,7 @@
 		CE77D05429E88EB100C2F044 /* Drinko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE77D05729E88EB100C2F044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE77D05929E88EB100C2F044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE77D05B29E88EB100C2F044 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CE77D05B29E88EB100C2F044 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		CE77D06029E88EB200C2F044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE77D06329E88EB200C2F044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE77D06529E88EB200C2F044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +123,9 @@
 		CEC09ACF2A18E38000CB7DC7 /* MainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
 		CEC09AD12A18E5FD00CB7DC7 /* CocktailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailModel.swift; sourceTree = "<group>"; };
 		CEC09AD42A18F52400CB7DC7 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		CEC09AD92A1A31B900CB7DC7 /* TabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
+		CEC09ADC2A1A36AD00CB7DC7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		CEC09ADE2A1A3AF100CB7DC7 /* TabBar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBar+Ext.swift"; sourceTree = "<group>"; };
 		CEECA28529F1DE6A00717A0F /* DefaultUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUIButton.swift; sourceTree = "<group>"; };
 		CEF2E06E2A06572000944364 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +262,7 @@
 		CE77D07029E88F5800C2F044 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEC09ADB2A1A369800CB7DC7 /* Favorites */,
 				CEC09AC82A18D86F00CB7DC7 /* Search */,
 				CE94ECE42A0A510100859AC3 /* Settings */,
 				CE3F7CE629EAA87C00DDC7DA /* Auth */,
@@ -305,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				CE77D08C29E8A30400C2F044 /* UIView+Ext.swift */,
+				CEC09ADE2A1A3AF100CB7DC7 /* TabBar+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,8 +336,9 @@
 		CE77D07729E8911F00C2F044 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CE77D05B29E88EB100C2F044 /* MainViewController.swift */,
+				CE77D05B29E88EB100C2F044 /* MainPageViewController.swift */,
 				CE77D07829E8915700C2F044 /* OnboardingViewController.swift */,
+				CEC09AD92A1A31B900CB7DC7 /* TabsViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -441,6 +450,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CEC09ADB2A1A369800CB7DC7 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				CEC09ADC2A1A36AD00CB7DC7 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		CEECA28429F1DE4900717A0F /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,14 +562,17 @@
 				CE3F7CEC29EAA8CF00DDC7DA /* SignInView.swift in Sources */,
 				CE0E545229F5C00100447532 /* LocalState.swift in Sources */,
 				CE94ECF02A0A542300859AC3 /* SettingsCellViewViewModel.swift in Sources */,
-				CE77D05C29E88EB100C2F044 /* MainViewController.swift in Sources */,
+				CE77D05C29E88EB100C2F044 /* MainPageViewController.swift in Sources */,
 				CE77D05829E88EB100C2F044 /* AppDelegate.swift in Sources */,
 				CEBB8A562A043695000F8C70 /* CategoriesCollectionViewCell.swift in Sources */,
+				CEC09ADF2A1A3AF100CB7DC7 /* TabBar+Ext.swift in Sources */,
+				CEC09ADD2A1A36AD00CB7DC7 /* FavoritesViewController.swift in Sources */,
 				CEF2E06F2A06572000944364 /* Requests.swift in Sources */,
 				CEBB8A532A0432B1000F8C70 /* MainUIViewViewModel.swift in Sources */,
 				CEECA28629F1DE6A00717A0F /* DefaultUIButton.swift in Sources */,
 				CE94ECF42A0A682D00859AC3 /* SettingsTableHeaderView.swift in Sources */,
 				CEBB8A5C2A0443BC000F8C70 /* IngredientsCollectionViewCell.swift in Sources */,
+				CEC09ADA2A1A31B900CB7DC7 /* TabsViewController.swift in Sources */,
 				CEBB8A5A2A043D6E000F8C70 /* MixesModel.swift in Sources */,
 				CE3F7CEF29EAA8F000DDC7DA /* SignInViewViewModel.swift in Sources */,
 				CE3F7CFC29EB4D4000DDC7DA /* RegistrationViewController.swift in Sources */,
