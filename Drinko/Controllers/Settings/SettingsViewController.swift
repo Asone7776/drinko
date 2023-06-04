@@ -23,7 +23,9 @@ final class SettingsViewController: UIViewController {
 extension SettingsViewController{
     private func style(){
         view.backgroundColor = .systemBackground
+        navigationController?.styleAppearance()
     }
+
     private func layout(){
         view.addSubview(settingsView)
         NSLayoutConstraint.activate([

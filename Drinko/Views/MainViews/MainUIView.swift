@@ -6,8 +6,12 @@
 //
 
 import UIKit
+protocol MainUIViewDelegate: AnyObject{
+    func didSelectItem(name:String,type:ItemType)
+}
 
 final class MainUIView: UIView {
+    weak var delegate:MainUIViewDelegate?
     private let viewModel = MainUIViewViewModel()
     let activityIndicator:UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
@@ -64,6 +68,10 @@ extension MainUIView{
 }
 
 extension MainUIView:MainUIViewViewModelDelegate{
+    func didSelectItem(with name: String,type:ItemType) {
+        delegate?.didSelectItem(name: name,type: type)
+    }
+    
     func didLoadInitialData() {
         collectionView.reloadData()
         activityIndicator.stopAnimating()

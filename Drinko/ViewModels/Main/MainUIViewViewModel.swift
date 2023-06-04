@@ -9,7 +9,8 @@ import UIKit
 
 
 protocol MainUIViewViewModelDelegate: AnyObject{
-        func didLoadInitialData()
+    func didLoadInitialData()
+    func didSelectItem(with name:String,type:ItemType)
 }
 
 final class MainUIViewViewModel:NSObject {
@@ -55,7 +56,7 @@ final class MainUIViewViewModel:NSObject {
             guard let categories = categories,let ingredients = ingredients else{
                 return
             }
-
+            
             self.sections = [
                 .categories(viewModel: categories),
                 .ingredients(viewModel: ingredients)
@@ -108,19 +109,19 @@ final class MainUIViewViewModel:NSObject {
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top)
         section.boundarySupplementaryItems = [header]
-//        section.visibleItemsInvalidationHandler = { (items, offset, environment) in
-//            items.forEach { item in
-//                let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0)
-//                let minScale: CGFloat = 0.7
-//                let maxScale: CGFloat = 1.1
-//                let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale)
-//                item.transform = CGAffineTransform(scaleX: scale, y: scale)
-//            }
-//        }
+        //        section.visibleItemsInvalidationHandler = { (items, offset, environment) in
+        //            items.forEach { item in
+        //                let distanceFromCenter = abs((item.frame.midX - offset.x) - environment.container.contentSize.width / 2.0)
+        //                let minScale: CGFloat = 0.7
+        //                let maxScale: CGFloat = 1.1
+        //                let scale = max(maxScale - (distanceFromCenter / environment.container.contentSize.width), minScale)
+        //                item.transform = CGAffineTransform(scaleX: scale, y: scale)
+        //            }
+        //        }
         return section
     }
 }
-extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSource {
+extension MainUIViewViewModel:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainCollectionViewHeader.identifier, for: indexPath) as! MainCollectionViewHeader
@@ -165,6 +166,20 @@ extension MainUIViewViewModel:UICollectionViewDelegate,UICollectionViewDataSourc
             let ingredient = ingredients.drinks[indexPath.row]
             cell.configure(with: ingredient)
             return cell
+        }
+    }
+}
+extension MainUIViewViewModel: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let section = sections[indexPath.section]
+        switch section {
+        case .categories(let categories):
+            let item = categories.drinks[indexPath.row]
+            delegate?.didSelectItem(with: item.strCategory,type:.category)
+        case .ingredients(let ingredients):
+            let item = ingredients.drinks[indexPath.row]
+            delegate?.didSelectItem(with: item.strIngredient1,type:.ingredient)
         }
     }
 }

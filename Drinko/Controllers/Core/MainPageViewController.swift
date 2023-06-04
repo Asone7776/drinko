@@ -15,6 +15,8 @@ final class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        mainUIView.delegate = self
+        style()
         layout()
         setupNavBar()
         profileRightView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedRightButton)))
@@ -29,6 +31,9 @@ final class MainPageViewController: UIViewController {
 }
 
 extension MainPageViewController{
+    private func style(){
+        navigationController?.styleAppearance()
+    }
     private func setupNavBar(){
         let imageView = UIImageView()
         let image = UIImage(named: "drinko-logo")
@@ -64,9 +69,9 @@ extension MainPageViewController{
         print("tapped left")
     }
     @objc func didTappedRightButton(){
-        //        profileRightView.showAnimation {
-        //            self.navigationController?.pushViewController(SettingsViewController(), animated: true);
-        //        }
+        profileRightView.showAnimation {
+            self.navigationController?.pushViewController(ProfileViewController(), animated: true);
+        }
     }
 }
 //MARK: Search methods
@@ -78,5 +83,12 @@ extension MainPageViewController: UISearchResultsUpdating{
         }
         let vc = searchController.searchResultsController as? SearchResultViewController
         vc?.searchResultText = text
+    }
+}
+
+extension MainPageViewController:MainUIViewDelegate{
+    func didSelectItem(name: String,type:ItemType) {
+        let vc = FilterByCategoryViewController(with: name,type: type)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

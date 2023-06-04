@@ -72,4 +72,3 @@ struct SingleCocktailModel: Codable{
     let strCreativeCommonsConfirmed: String?
     let dateModified: String?
 }
-
